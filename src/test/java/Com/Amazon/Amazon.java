@@ -15,11 +15,12 @@ class Amazon extends ShoppingSite
 		System.out.println("Opened Amazon website");
 		Thread.sleep(2000);	
 	}
+	//Return price
 	public Float getPrice()
 	{
 		return price;
 	}
-
+    //Search Product
 	public void searchProduct(WebDriver driver,String productName) throws InterruptedException
 	{
 		WebElement searchBox= driver.findElement(By.id("twotabsearchtextbox"));
@@ -44,7 +45,7 @@ class Amazon extends ShoppingSite
 		}
 		System.out.println("Searched "+productName);
 	}
-	
+	//Add product to the cart
 	public void addToCart(WebDriver driver,String cartUrl) throws InterruptedException
 	{
 		WebElement firstItem=driver.findElements(By.xpath("//h2[@class=\"a-size-mini a-spacing-none a-color-base s-line-clamp-2\"]/a")).get(0);

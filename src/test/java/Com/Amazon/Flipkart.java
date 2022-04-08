@@ -12,6 +12,7 @@ class Flipkart extends ShoppingSite
 	Flipkart(WebDriver driver,String flipkartSite) throws InterruptedException
 	{
 		driver.get(flipkartSite);
+		driver.manage().window().maximize();
 		System.out.println("Opened Filpkart website");
 		Thread.sleep(2000);
 		WebElement logInWindow= driver.findElement(By.className("_2doB4z"));
@@ -23,10 +24,12 @@ class Flipkart extends ShoppingSite
 			}	
 		}
 	}
+	//return product price
 	public Float getPrice()
 	{
 		return price;
 	}
+	//Search product
 	public void searchProduct(WebDriver driver,String productName) throws InterruptedException
 	{
 		WebElement searchBox=driver.findElement(By.className("_3704LK"));
@@ -51,7 +54,7 @@ class Flipkart extends ShoppingSite
 		}
 		System.out.println("Searched "+productName);
 	}
-	
+	//Add product to the cart
 	public void addToCart(WebDriver driver,String cartUrl) throws InterruptedException
 	{
 	    String UrlToClick=driver.findElement(By.xpath("//a[@class=\"_1fQZEK\"][1]")).getAttribute("href");

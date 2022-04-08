@@ -3,6 +3,7 @@ package Com.Amazon;
 
 
 import org.openqa.selenium.WebDriver;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -16,9 +17,10 @@ public class AppTest {
 		float flipkartPrice;
 		float amazonPrice;
 		try {
+			
 			WebDriverManager.chromedriver().setup();
 			WebDriver driver=new ChromeDriver();
-			
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	        Flipkart fk=new Flipkart(driver,flipkartSite);
 	        fk.searchProduct(driver, product);
 	        fk.addToCart(driver, cartUrl);
