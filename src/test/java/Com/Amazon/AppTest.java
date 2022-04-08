@@ -43,6 +43,7 @@ public class AppTest {
 			{
 				System.out.println(product+" Prices are same on Amazon and Flipkart. Amazon:"+amazonPrice+",Flipkart:"+flipkartPrice); 
 			}
+			driver.quit();
 		}
 		catch(Exception e)
 		{
